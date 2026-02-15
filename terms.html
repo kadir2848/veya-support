@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veya Terms of Use</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç / Skip to content</a>
+
+  <header class="site-header container">
+    <div>
+      <h1>Veya Terms of Use</h1>
+      <p class="muted">Last Updated: 16 Feb 2026</p>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Language switch">
+      <button id="btn-tr" class="lang-btn active" type="button" aria-pressed="true">TR</button>
+      <button id="btn-en" class="lang-btn" type="button" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="card lang-tr">
+      <h2>Kullanım Koşulları (TR)</h2>
+      <ul>
+        <li>Veya uygulamasını kullanarak bu koşulları kabul etmiş olursunuz.</li>
+        <li>Uygulama 13 yaş altı kullanıcılar için uygun değildir.</li>
+        <li>Hesap güvenliğinden kullanıcı sorumludur.</li>
+        <li>Taciz, tehdit, yasa dışı içerik ve kötüye kullanım yasaktır.</li>
+        <li>Abonelikler Apple tarafından yönetilir; ücretlendirme ve iptal Apple kurallarına tabidir.</li>
+        <li>Koşullar güncellenebilir; güncel sürüm bu sayfada yayınlanır.</li>
+      </ul>
+      <p>İletişim: <a href="mailto:veyahelp@gmail.com">veyahelp@gmail.com</a></p>
+    </section>
+
+    <section class="card lang-en is-hidden">
+      <h2>Terms of Use (EN)</h2>
+      <ul>
+        <li>By using Veya, you agree to these terms.</li>
+        <li>The app is not intended for users under 13.</li>
+        <li>Users are responsible for account security.</li>
+        <li>Harassment, threats, unlawful content, and abuse are prohibited.</li>
+        <li>Subscriptions are managed by Apple; billing and cancellation follow Apple policies.</li>
+        <li>These terms may be updated; the latest version is published on this page.</li>
+      </ul>
+      <p>Contact: <a href="mailto:veyahelp@gmail.com">veyahelp@gmail.com</a></p>
+    </section>
+
+    <p class="back-link"><a href="index.html">← Support</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a></p>
+  </main>
+
+  <footer class="container footer">
+    <p>© Kadir Can Girenitlioğlu</p>
+  </footer>
+
+  <script>
+    (function () {
+      const btnTr = document.getElementById("btn-tr");
+      const btnEn = document.getElementById("btn-en");
+
+      function setLang(lang) {
+        document.documentElement.lang = lang === "tr" ? "tr" : "en";
+
+        document.querySelectorAll(".lang-tr").forEach(el => {
+          el.classList.toggle("is-hidden", lang !== "tr");
+        });
+        document.querySelectorAll(".lang-en").forEach(el => {
+          el.classList.toggle("is-hidden", lang !== "en");
+        });
+
+        btnTr.classList.toggle("active", lang === "tr");
+        btnEn.classList.toggle("active", lang === "en");
+        btnTr.setAttribute("aria-pressed", String(lang === "tr"));
+        btnEn.setAttribute("aria-pressed", String(lang === "en"));
+      }
+
+      btnTr.addEventListener("click", () => setLang("tr"));
+      btnEn.addEventListener("click", () => setLang("en"));
+      setLang("tr");
+    })();
+  </script>
+</body>
+</html>

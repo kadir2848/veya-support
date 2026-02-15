@@ -1,0 +1,98 @@
+
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veya Support</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç / Skip to content</a>
+
+  <header class="site-header container">
+    <div>
+      <h1>Veya</h1>
+      <p class="muted lang-tr">Kimliksiz sosyal etkileşim platformu</p>
+      <p class="muted lang-en is-hidden">Anonymous social interaction platform</p>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Language switch">
+      <button id="btn-tr" class="lang-btn active" type="button" aria-pressed="true">TR</button>
+      <button id="btn-en" class="lang-btn" type="button" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="card">
+      <h2 class="lang-tr">Destek</h2>
+      <h2 class="lang-en is-hidden">Support</h2>
+
+      <p class="lang-tr">
+        Veya ile ilgili destek talepleriniz için bizimle iletişime geçin.
+      </p>
+      <p class="lang-en is-hidden">
+        Contact us for any support requests related to Veya.
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:SUPPORT_EMAIL_PLACEHOLDER">SUPPORT_EMAIL_PLACEHOLDER</a>
+      </p>
+
+      <nav class="links" aria-label="Legal links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </nav>
+    </section>
+
+    <section class="card">
+      <h2 class="lang-tr">Kötüye Kullanım Bildirimi</h2>
+      <h2 class="lang-en is-hidden">Report Abuse</h2>
+
+      <p class="lang-tr">
+        Uygulama içinde kötüye kullanım, taciz veya güvenlik ihlali görürseniz ekran görüntüsü,
+        ilgili kullanıcı bilgisi ve kısa açıklama ile aşağıdaki adrese e-posta gönderin:
+      </p>
+      <p class="lang-en is-hidden">
+        If you observe abuse, harassment, or safety issues in the app, please email us with
+        screenshots, relevant user details, and a short explanation:
+      </p>
+
+      <p>
+        <a href="mailto:veyahelp@gmail.com">veyahelp@gmail.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>© Kadir Can Girenitlioğlu</p>
+  </footer>
+
+  <script>
+    (function () {
+      const btnTr = document.getElementById("btn-tr");
+      const btnEn = document.getElementById("btn-en");
+
+      function setLang(lang) {
+        document.documentElement.lang = lang === "tr" ? "tr" : "en";
+
+        document.querySelectorAll(".lang-tr").forEach(el => {
+          el.classList.toggle("is-hidden", lang !== "tr");
+        });
+        document.querySelectorAll(".lang-en").forEach(el => {
+          el.classList.toggle("is-hidden", lang !== "en");
+        });
+
+        btnTr.classList.toggle("active", lang === "tr");
+        btnEn.classList.toggle("active", lang === "en");
+        btnTr.setAttribute("aria-pressed", String(lang === "tr"));
+        btnEn.setAttribute("aria-pressed", String(lang === "en"));
+      }
+
+      btnTr.addEventListener("click", () => setLang("tr"));
+      btnEn.addEventListener("click", () => setLang("en"));
+      setLang("tr");
+    })();
+  </script>
+</body>
+</html>
